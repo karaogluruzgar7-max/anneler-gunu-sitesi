@@ -733,10 +733,37 @@ button:active {
         width: 95%;
     }
 
-    /* Container dekorasyon elemanlarını gizle */
-    .container::before,
+    /* Container'a küçük çiçek dekorasyonları ekle */
+    .container::before {
+        content: '🌸';
+        position: absolute;
+        top: -15px;
+        left: 20px;
+        font-size: 24px;
+        opacity: 0.6;
+        animation: float 4s ease-in-out infinite alternate;
+    }
+
     .container::after {
-        display: none;
+        content: '🌹';
+        position: absolute;
+        bottom: -15px;
+        right: 20px;
+        font-size: 20px;
+        opacity: 0.6;
+        animation: float 3.5s ease-in-out infinite alternate reverse;
+    }
+
+    /* Input alanının üzerine küçük kalp */
+    .input-section::before {
+        content: '💕';
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        opacity: 0.7;
+        animation: pulse 3s ease-in-out infinite;
     }
 
     h1 {
@@ -758,14 +785,14 @@ button:active {
         padding: 10px 20px;
     }
 
-    /* Dekorasyon kontrol */
+    /* Dekorasyon kontrol - mobilde sadece birkaç küçük element bırak */
     .decorations {
         z-index: -1;
-        opacity: 0.25;
+        opacity: 0.4;
         overflow: hidden;
     }
 
-    /* Sorun yaratan dekorasyon gizle */
+    /* Mobilde çoğu dekorasyonu gizle, sadece birkaç küçük element bırak */
     .decorations .d1,
     .decorations .d2,
     .decorations .d3,
@@ -773,115 +800,54 @@ button:active {
     .decorations .r2,
     .decorations .flower.f1,
     .decorations .flower.f2,
+    .decorations .flower.f3,
+    .decorations .flower.f4,
+    .decorations .flower.f5,
     .decorations .flower.f6,
+    .decorations .flower.f7,
+    .decorations .flower.f8,
     .decorations .flower.f9,
+    .decorations .flower.f10,
     .decorations .flower.f11,
+    .decorations .flower.f12,
     .decorations .leaf.l1,
-    .decorations .heart.h1,
-    .decorations .heart.h4,
-    .decorations .heart.h6,
+    .decorations .leaf.l2,
+    .decorations .star.s1,
+    .decorations .star.s2,
     .decorations .star.s3,
-    .decorations .star.s5 {
+    .decorations .star.s4,
+    .decorations .star.s5,
+    .decorations .star.s6 {
         display: none !important;
     }
 
-    /* Alt ve yan dekorasyon taşı */
-    .decorations .flower.f3 { 
-        top: auto !important;
-        bottom: 20% !important;
-        left: auto !important;
-        right: 5% !important;
+    /* Sadece birkaç küçük kalp bırak */
+    .decorations .heart.h2,
+    .decorations .heart.h3,
+    .decorations .heart.h5 {
+        display: block !important;
+        width: 16px !important;
+        height: 16px !important;
+        animation: float 3s ease-in-out infinite alternate !important;
     }
-    
-    .decorations .flower.f4 { 
-        top: auto !important;
-        bottom: 8% !important;
+
+    /* Kalpleri konumlandır */
+    .decorations .heart.h2 {
+        top: 15% !important;
         right: 8% !important;
         left: auto !important;
     }
-    
-    .decorations .flower.f5 { 
-        top: auto !important;
-        bottom: 40% !important;
-        left: 3% !important;
+
+    .decorations .heart.h3 {
+        top: 25% !important;
+        left: 8% !important;
+        right: auto !important;
     }
-    
-    .decorations .flower.f7 { 
-        top: auto !important;
-        bottom: 30% !important;
-        right: 5% !important;
-        left: auto !important;
-    }
-    
-    .decorations .flower.f8 { 
-        top: auto !important;
-        bottom: 25% !important;
-        left: 5% !important;
-    }
-    
-    .decorations .flower.f10 { 
-        top: auto !important;
-        bottom: 5% !important;
-        right: 20% !important;
-        left: auto !important;
-    }
-    
-    .decorations .flower.f12 { 
-        top: auto !important;
+
+    .decorations .heart.h5 {
         bottom: 15% !important;
-        right: 3% !important;
+        right: 12% !important;
         left: auto !important;
-    }
-    
-    .decorations .leaf.l2 { 
         top: auto !important;
-        bottom: 10% !important;
-        right: 3% !important;
-    }
-    
-    .decorations .heart.h2 { 
-        top: auto !important;
-        bottom: 8% !important;
-        right: 3% !important;
-    }
-    
-    .decorations .heart.h3 { 
-        top: auto !important;
-        bottom: 28% !important;
-        left: auto !important;
-        right: 8% !important;
-    }
-    
-    .decorations .heart.h5 { 
-        top: auto !important;
-        bottom: 45% !important;
-        right: 2% !important;
-        left: auto !important;
-    }
-    
-    .decorations .star.s1 { 
-        top: auto !important;
-        left: auto !important;
-        right: 15% !important;
-        bottom: 35% !important;
-    }
-    
-    .decorations .star.s2 { 
-        top: auto !important;
-        bottom: 12% !important;
-        right: 15% !important;
-    }
-    
-    .decorations .star.s4 { 
-        top: auto !important;
-        bottom: 28% !important;
-        left: auto !important;
-        right: 25% !important;
-    }
-    
-    .decorations .star.s6 { 
-        top: auto !important;
-        bottom: 8% !important;
-        left: 30% !important;
     }
 }
