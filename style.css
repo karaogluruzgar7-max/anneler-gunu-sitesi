@@ -695,3 +695,193 @@ button:active {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+/* Kalp yağmuru animasyonu */
+@keyframes heartFall {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 0.8;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(400px) rotate(180deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Mobil Uyumlu Ayarlar */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 30px 20px;
+        margin: 20px auto;
+        width: 95%;
+    }
+
+    /* Container dekorasyon elemanlarını gizle */
+    .container::before,
+    .container::after {
+        display: none;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    input {
+        width: 90%;
+        font-size: 16px; /* Mobilde zoom yaşanmaması için 16px kullan */
+    }
+
+    button {
+        font-size: 0.95em;
+        padding: 10px 20px;
+    }
+
+    /* Dekorasyon kontrol */
+    .decorations {
+        z-index: -1;
+        opacity: 0.25;
+        overflow: hidden;
+    }
+
+    /* Sorun yaratan dekorasyon gizle */
+    .decorations .d1,
+    .decorations .d2,
+    .decorations .d3,
+    .decorations .r1,
+    .decorations .r2,
+    .decorations .flower.f1,
+    .decorations .flower.f2,
+    .decorations .flower.f6,
+    .decorations .flower.f9,
+    .decorations .flower.f11,
+    .decorations .leaf.l1,
+    .decorations .heart.h1,
+    .decorations .heart.h4,
+    .decorations .heart.h6,
+    .decorations .star.s3,
+    .decorations .star.s5 {
+        display: none !important;
+    }
+
+    /* Alt ve yan dekorasyon taşı */
+    .decorations .flower.f3 { 
+        top: auto !important;
+        bottom: 20% !important;
+        left: auto !important;
+        right: 5% !important;
+    }
+    
+    .decorations .flower.f4 { 
+        top: auto !important;
+        bottom: 8% !important;
+        right: 8% !important;
+        left: auto !important;
+    }
+    
+    .decorations .flower.f5 { 
+        top: auto !important;
+        bottom: 40% !important;
+        left: 3% !important;
+    }
+    
+    .decorations .flower.f7 { 
+        top: auto !important;
+        bottom: 30% !important;
+        right: 5% !important;
+        left: auto !important;
+    }
+    
+    .decorations .flower.f8 { 
+        top: auto !important;
+        bottom: 25% !important;
+        left: 5% !important;
+    }
+    
+    .decorations .flower.f10 { 
+        top: auto !important;
+        bottom: 5% !important;
+        right: 20% !important;
+        left: auto !important;
+    }
+    
+    .decorations .flower.f12 { 
+        top: auto !important;
+        bottom: 15% !important;
+        right: 3% !important;
+        left: auto !important;
+    }
+    
+    .decorations .leaf.l2 { 
+        top: auto !important;
+        bottom: 10% !important;
+        right: 3% !important;
+    }
+    
+    .decorations .heart.h2 { 
+        top: auto !important;
+        bottom: 8% !important;
+        right: 3% !important;
+    }
+    
+    .decorations .heart.h3 { 
+        top: auto !important;
+        bottom: 28% !important;
+        left: auto !important;
+        right: 8% !important;
+    }
+    
+    .decorations .heart.h5 { 
+        top: auto !important;
+        bottom: 45% !important;
+        right: 2% !important;
+        left: auto !important;
+    }
+    
+    .decorations .star.s1 { 
+        top: auto !important;
+        left: auto !important;
+        right: 15% !important;
+        bottom: 35% !important;
+    }
+    
+    .decorations .star.s2 { 
+        top: auto !important;
+        bottom: 12% !important;
+        right: 15% !important;
+    }
+    
+    .decorations .star.s4 { 
+        top: auto !important;
+        bottom: 28% !important;
+        left: auto !important;
+        right: 25% !important;
+    }
+    
+    .decorations .star.s6 { 
+        top: auto !important;
+        bottom: 8% !important;
+        left: 30% !important;
+    }
+}

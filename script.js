@@ -47,6 +47,8 @@ giftBox.addEventListener('click', function() {
     setTimeout(() => {
         giftBox.classList.add('hidden');
         bouquet.classList.remove('hidden');
+        // Kısa kalp yağmuru başlat
+        startHeartRain();
     }, 700);
     setTimeout(() => {
         confetti.classList.add('hidden');
@@ -68,6 +70,56 @@ function createConfetti() {
         piece.style.height = `${12 + Math.random() * 8}px`;
         confetti.appendChild(piece);
     }
+}
+
+function startHeartRain() {
+    const giftScreen = document.querySelector('.gift-screen');
+    const heartContainer = document.createElement('div');
+    heartContainer.className = 'heart-rain-container';
+    heartContainer.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 10;
+    `;
+    giftScreen.appendChild(heartContainer);
+
+    // 8-10 kalp oluştur
+    const heartCount = 8 + Math.floor(Math.random() * 3);
+    
+    for (let i = 0; i < heartCount; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.cssText = `
+                position: absolute;
+                font-size: ${20 + Math.random() * 15}px;
+                left: ${Math.random() * 100}%;
+                top: -50px;
+                animation: heartFall 2s ease-out forwards;
+                opacity: 0.8;
+            `;
+            heartContainer.appendChild(heart);
+            
+            // Kalp düştükten sonra kaldır
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 2000);
+        }, i * 200); // Her kalp 200ms arayla başlasın
+    }
+    
+    // 3 saniye sonra container'ı kaldır
+    setTimeout(() => {
+        if (heartContainer.parentNode) {
+            heartContainer.parentNode.removeChild(heartContainer);
+        }
+    }, 4000);
 }
 
 musicBtn.addEventListener('click', function() {
