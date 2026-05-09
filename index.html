@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anneler Günü Kutlaması</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Anneler Günü</h1>
+        <div class="input-section">
+            <label for="nameInput">İsminizi girin:</label>
+            <input type="text" id="nameInput" placeholder="Adınızı yazın">
+            <button id="submitBtn">Gönder</button>
+        </div>
+        <div id="message" class="message hidden">
+            <p id="messageText"></p>
+            <button id="musicBtn" class="music-btn" type="button">Müziği Aç</button>
+            <button id="giftBtn" class="gift-btn" type="button">HEDİYENİ AL</button>
+            <p id="footerText">Rüzgar, Anneler Gününüzü Kutlar❤️</p>
+        </div>
+    </div>
+    <div class="gift-screen hidden">
+        <div class="gift-content">
+            <p class="gift-title">Tıkla</p>
+            <div id="giftBox" class="gift-box" role="button" tabindex="0" aria-label="Hediye paketini aç">
+                <div class="gift-lid"></div>
+                <div class="gift-ribbon"></div>
+                <div class="ribbon-cross"></div>
+            </div>
+            <div id="confetti" class="confetti-container hidden"></div>
+            <div id="bouquet" class="bouquet hidden">
+                <div class="bouquet-wrap">
+                    <div class="stem stem1"></div>
+                    <div class="stem stem2"></div>
+                    <div class="stem stem3"></div>
+                    <div class="flower-bud bud1"></div>
+                    <div class="flower-bud bud2"></div>
+                    <div class="flower-bud bud3"></div>
+                    <div class="flower-bud bud4"></div>
+                    <div class="flower-bud bud5"></div>
+                    <div class="leaf leaf1"></div>
+                    <div class="leaf leaf2"></div>
+                    <div class="leaf leaf3"></div>
+                    <div class="bow"></div>
+                </div>
+                <p class="gift-message">İşte, Rüzgar'dan size bir anneler günü hediyesi !</p>
+            </div>
+        </div>
+    </div>
+    <audio id="bgMusic" loop preload="metadata" src="audio/snowman.mp3"></audio>
+    <!-- Dekoratif elementler -->
+    <div class="decorations">
+        <!-- SVG Çiçekler -->
+        <svg class="daisy d1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="8" fill="#FFD700"/>
+            <circle cx="35" cy="35" r="6" fill="#FFF"/>
+            <circle cx="65" cy="35" r="6" fill="#FFF"/>
+            <circle cx="35" cy="65" r="6" fill="#FFF"/>
+            <circle cx="65" cy="65" r="6" fill="#FFF"/>
+            <circle cx="50" cy="25" r="6" fill="#FFF"/>
+            <circle cx="50" cy="75" r="6" fill="#FFF"/>
+            <circle cx="25" cy="50" r="6" fill="#FFF"/>
+            <circle cx="75" cy="50" r="6" fill="#FFF"/>
+        </svg>
+        <svg class="rose r1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C40 10, 30 20, 50 40 C70 20, 60 10, 50 20 Z" fill="#FF1493"/>
+            <path d="M50 30 C35 20, 25 30, 50 50 C75 30, 65 20, 50 30 Z" fill="#FF69B4"/>
+            <path d="M50 40 C40 30, 30 40, 50 60 C70 40, 60 30, 50 40 Z" fill="#FFB6C1"/>
+        </svg>
+        <svg class="daisy d2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="8" fill="#FFD700"/>
+            <circle cx="35" cy="35" r="6" fill="#FFF"/>
+            <circle cx="65" cy="35" r="6" fill="#FFF"/>
+            <circle cx="35" cy="65" r="6" fill="#FFF"/>
+            <circle cx="65" cy="65" r="6" fill="#FFF"/>
+            <circle cx="50" cy="25" r="6" fill="#FFF"/>
+            <circle cx="50" cy="75" r="6" fill="#FFF"/>
+            <circle cx="25" cy="50" r="6" fill="#FFF"/>
+            <circle cx="75" cy="50" r="6" fill="#FFF"/>
+        </svg>
+        <svg class="rose r2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C40 10, 30 20, 50 40 C70 20, 60 10, 50 20 Z" fill="#FF1493"/>
+            <path d="M50 30 C35 20, 25 30, 50 50 C75 30, 65 20, 50 30 Z" fill="#FF69B4"/>
+            <path d="M50 40 C40 30, 30 40, 50 60 C70 40, 60 30, 50 40 Z" fill="#FFB6C1"/>
+        </svg>
+        <svg class="daisy d3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="8" fill="#FFD700"/>
+            <circle cx="35" cy="35" r="6" fill="#FFF"/>
+            <circle cx="65" cy="35" r="6" fill="#FFF"/>
+            <circle cx="35" cy="65" r="6" fill="#FFF"/>
+            <circle cx="65" cy="65" r="6" fill="#FFF"/>
+            <circle cx="50" cy="25" r="6" fill="#FFF"/>
+            <circle cx="50" cy="75" r="6" fill="#FFF"/>
+            <circle cx="25" cy="50" r="6" fill="#FFF"/>
+            <circle cx="75" cy="50" r="6" fill="#FFF"/>
+        </svg>
+        <svg class="rose r2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 C40 10, 30 20, 50 40 C70 20, 60 10, 50 20 Z" fill="#FF1493"/>
+            <path d="M50 30 C35 20, 25 30, 50 50 C75 30, 65 20, 50 30 Z" fill="#FF69B4"/>
+            <path d="M50 40 C40 30, 30 40, 50 60 C70 40, 60 30, 50 40 Z" fill="#FFB6C1"/>
+        </svg>
+        <div class="leaf l1"></div>
+        <div class="leaf l2"></div>
+        <div class="flower f1"></div>
+        <div class="flower f2"></div>
+        <div class="flower f3"></div>
+        <div class="flower f4"></div>
+        <div class="flower f5"></div>
+        <div class="flower f6"></div>
+        <div class="flower f7"></div>
+        <div class="flower f8"></div>
+        <div class="flower f9"></div>
+        <div class="flower f10"></div>
+        <div class="flower f11"></div>
+        <div class="flower f12"></div>
+        <div class="heart h1"></div>
+        <div class="heart h2"></div>
+        <div class="heart h3"></div>
+        <div class="heart h4"></div>
+        <div class="heart h5"></div>
+        <div class="heart h6"></div>
+        <div class="star s1"></div>
+        <div class="star s2"></div>
+        <div class="star s3"></div>
+        <div class="star s4"></div>
+        <div class="star s5"></div>
+        <div class="star s6"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html></content>
+<parameter name="filePath"
